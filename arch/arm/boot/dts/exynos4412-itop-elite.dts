@@ -34,9 +34,10 @@
 	};
 
 	memory {
-  		reg = <0x40000000 0x40000000>;
-    };
+		reg = <0x40000000 0x40000000>;
+	};
 
+#if 0
 	leds {
 		compatible = "gpio-leds";
 
@@ -53,6 +54,26 @@
 			default-state = "off";
 		};
 	};
+#else
+/*
+ * A simple CPIO led driver:
+ *    id and pin are custome attribute
+ */
+	led2@11000100 {
+		compatible = "itop4412, led";
+		/* GPL2_0 */
+		reg = <0x11000100 0x8>;
+		id = <1>;
+		pin = <0>;
+	}
+	led3@11000060 {
+		compatible = "itop4412, led";
+		/* GPK1_1 */
+		reg = <0x11000060 0x8>;
+		id = <2>;
+		pin = <0>;
+	}
+#endif
 
 	gpio-keys {
 		compatible = "gpio-keys";
