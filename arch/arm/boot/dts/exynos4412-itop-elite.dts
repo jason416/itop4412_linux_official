@@ -34,8 +34,8 @@
 	};
 
 	memory {
-                reg = <0x40000000 0x40000000>;
-        };
+  		reg = <0x40000000 0x40000000>;
+    };
 
 	leds {
 		compatible = "gpio-leds";
