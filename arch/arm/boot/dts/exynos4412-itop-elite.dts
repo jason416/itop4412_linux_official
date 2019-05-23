@@ -65,14 +65,15 @@
 		reg = <0x11000100 0x8>;
 		id = <1>;
 		pin = <0>;
-	}
+	};
+	
 	led3@11000060 {
 		compatible = "itop4412, led";
 		/* GPK1_1 */
 		reg = <0x11000060 0x8>;
 		id = <2>;
 		pin = <0>;
-	}
+	};
 #endif
 
 	gpio-keys {
