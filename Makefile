@@ -253,8 +253,8 @@ ARCH           := arm
 
 #CROSS_COMPILE	?= $(CONFIG_CROSS_COMPILE:"%"=%)
 #CROSS_COMPILE   := arm-none-linux-gnueabi-
-#CROSS_COMPILE   := arm-linux-gnueabihf
-CROSS_COMPILE   := arm-linux-
+CROSS_COMPILE   := arm-linux-gnueabihf-
+#CROSS_COMPILE   := arm-linux-
 
 # Architecture as present in compile.h
 UTS_MACHINE 	:= $(ARCH)

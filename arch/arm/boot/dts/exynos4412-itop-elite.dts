@@ -34,15 +34,17 @@
 	};
 
 	memory {
-  		reg = <0x40000000 0x40000000>;
-    };
+		reg = <0x40000000 0x40000000>;
+	};
 
+#if 1
+	/* More info in Documentation/devicetree/bindings/leds/leds-gpio.txt */
 	leds {
 		compatible = "gpio-leds";
 
 		led2 {
 			label = "red:system";
-			gpios = <&gpx1 0 GPIO_ACTIVE_HIGH>;
+			gpios = <&gpl2 0 GPIO_ACTIVE_HIGH>;
 			default-state = "off";
 			linux,default-trigger = "heartbeat";
 		};
@@ -53,6 +55,27 @@
 			default-state = "off";
 		};
 	};
+#else
+/*
+ * A simple CPIO led driver:
+ *    id and pin are custome attribute
+ */
+	led2@11000100 {
+		compatible = "itop4412, led";
+		/* GPL2_0 */
+		reg = <0x11000100 0x8>;
+		id = <1>;
+		pin = <0>;
+	};
+
+	led3@11000060 {
+		compatible = "itop4412, led";
+		/* GPK1_1 */
+		reg = <0x11000060 0x8>;
+		id = <2>;
+		pin = <1>;
+	};
+#endif
 
 	gpio-keys {
 		compatible = "gpio-keys";
