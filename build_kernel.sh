@@ -11,6 +11,11 @@ make uImage LOADADDR=0x40007000 -j8
 
 make dtbs
 
+# 1. if you DO NEED install modules, uncomment these lines
+# 2. INSTALL_MOD_PATH -> your rootfs path
+# make modules
+# make modules_install INSTALL_MOD_PATH=/home/jason/rootfs/
+
 KERNEL=arch/arm/boot/uImage
 DTB=arch/arm/boot/dts/exynos4412-itop-elite.dtb
 
